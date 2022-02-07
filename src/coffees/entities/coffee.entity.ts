@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity() //sql table === 'coffee' 
+@Entity() //sql table === 'coffee'
 export class Coffee {
   @PrimaryGeneratedColumn() // defines id as primary column and also autoincrement it for us.
   id: number;

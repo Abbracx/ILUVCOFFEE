@@ -18,18 +18,18 @@ export class CoffeesController {
   constructor(private readonly coffeesService: CoffeesService) {}
 
   @Get()
-  findAll(@Query() paginationQuery): Coffee[] {
+  findAll(@Query() paginationQuery): Promise<Coffee[]> {
     // const { limit, offset } = paginationQuery;
     return this.coffeesService.findAll();
   }
 
   @Get(':id')
-  findOneOne(@Param('id') id: string): Coffee {
+  findOneOne(@Param('id') id: string): Promise<Coffee> {
     return this.coffeesService.findOne(id);
   }
 
   @Post()
-  create(@Body() createCoffeeDto: CreateCoffeeDto) {
+  create(@Body() createCoffeeDto: CreateCoffeeDto): Promise<Coffee> {
     return this.coffeesService.create(createCoffeeDto);
   }
 
@@ -37,12 +37,12 @@ export class CoffeesController {
   update(
     @Param('id') id: string,
     @Body() updateCoffeeDto: UpdateCoffeeDto,
-  ): void {
+  ): Promise<Coffee> {
     return this.coffeesService.update(id, updateCoffeeDto);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: number): boolean {
+  delete(@Param('id') id: number): Promise<Coffee> {
     return this.coffeesService.remove('' + id);
   }
 }
