@@ -42,7 +42,7 @@ export class CoffeesController {
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string): boolean {
-    return this.coffeesService.remove(id);
+  delete(@Param('id') id: number): boolean {
+    return this.coffeesService.remove('' + id);
   }
 }
