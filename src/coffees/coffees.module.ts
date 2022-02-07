@@ -3,11 +3,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CoffeesController } from './coffees.controller';
 import { CoffeesService } from './coffees.service';
 import { Coffee } from './entities/coffee.entity';
+import { Flavor } from './entities/flavor.entity';
 
 
 //The use of forFeature() registers TypeORM in this child module
 @Module({
-  imports: [TypeOrmModule.forFeature([Coffee])],
+  imports: [TypeOrmModule.forFeature([Coffee, Flavor])],
   controllers: [CoffeesController],
   providers: [CoffeesService],
 })

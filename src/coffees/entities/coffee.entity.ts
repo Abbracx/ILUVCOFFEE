@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Flavor } from './flavor.entity';
 
 @Entity() //sql table === 'coffee'
 export class Coffee {
@@ -11,7 +18,12 @@ export class Coffee {
   @Column()
   brand: string;
 
-  @Column('json', { nullable: true }) // flavors stores arrays as json and makes the column optional
+  //   @Column('json', { nullable: true }) // flavors stores arrays as json and makes the column optional
+  //   flavors: string[];
+
+  //@JointTable() decorator helps specify the owner side of the relationship. which in these case is the Coffee Entity
+  @JoinTable()
+  @ManyToMany(type => Flavor, (flavor) => flavor.coffees )
   flavors: string[];
 }
 
