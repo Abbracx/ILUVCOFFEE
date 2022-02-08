@@ -10,7 +10,7 @@ export class Flavor {
   name: string;
 
   @ManyToMany((type) => Coffee, (coffee) => coffee.flavors)
-  coffess: Coffee[];
+  coffees: Coffee[];
 }
 
 //make sure u register flavor entity with type orm

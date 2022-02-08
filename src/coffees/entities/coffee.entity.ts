@@ -23,8 +23,8 @@ export class Coffee {
 
   //@JointTable() decorator helps specify the owner side of the relationship. which in these case is the Coffee Entity
   @JoinTable()
-  @ManyToMany(type => Flavor, (flavor) => flavor.coffees )
-  flavors: string[];
+  @ManyToMany((type) => Flavor, (flavor) => flavor.coffees, { cascade: true })
+  flavors: Flavor[];
 }
 
-//We need to make TypeORM aware of the entity inside of these child module itself
+//We need to make TypeORM aware of the en tity inside of these child module itself
