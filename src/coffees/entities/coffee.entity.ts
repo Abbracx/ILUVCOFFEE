@@ -18,6 +18,9 @@ export class Coffee {
   @Column()
   brand: string;
 
+  @Column({ default: 0 })
+  recommendations: number;
+
   //   @Column('json', { nullable: true }) // flavors stores arrays as json and makes the column optional
   //   flavors: string[];
 
