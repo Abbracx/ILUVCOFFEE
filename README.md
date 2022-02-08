@@ -32,6 +32,10 @@ After cloning the repo using either ssh or http, install project dependencies wi
 $ yarn install
 ```
 
+## Running postgre docker container
+```bash
+$ docker-compose up -d
+```
 ## Running the app
 
 ```bash
@@ -39,7 +43,7 @@ $ yarn install
 $ yarn start
 
 # watch mode
-$ yarb start:dev
+$ yarn start:dev
 
 # production mode
 $ yarn start:prod
