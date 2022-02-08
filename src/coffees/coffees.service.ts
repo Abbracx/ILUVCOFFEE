@@ -93,7 +93,7 @@ export class CoffeesService {
   }
 
   async recommendCoffee(coffee: Coffee) {
-      //creating a new query runner
+    //creating a new query runner
     const queryRunner = this.connection.createQueryRunner();
 
     // esstablishing  a connection to the database
